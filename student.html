@@ -1,31 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Profile</title>
-    <link rel="stylesheet" href="styles/student.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SAIT Connect - Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background-color: #f4f4f4;
+        }
+        #studentDetails {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ccc;
+            width: fit-content;
+        }
+        #studentDetails p {
+            margin-bottom: 8px;
+        }
+        button {
+            padding: 8px 12px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <h1>Student Details</h1>
 
-    <div class="profile-container">
-        <!-- Student Photo -->
-        <img id="studentPhoto" src="assets/studentsphoto/default.jpg" alt="Student Photo">
-        
-        <!-- Student Details -->
-        <h2 id="studentName">N/A</h2>
-        <p><strong>Email:</strong> <span id="studentEmail">N/A</span></p>
-            <!--  <p><strong>Current Year:</strong> <span id="studentYear">N/A</span></p>
-        <p><strong>Semester:</strong> <span id="studentSemester">N/A</span></p>  -->
-        
-        <!-- Buttons -->
-        <div class="buttons">
-            <button onclick="goBack()">Go Back</button>
-            <button id="connectButton">Connect</button>
-        </div>
+    <div id="studentDetails">
+        <p><strong>Loading...</strong></p>
     </div>
 
-    <script src="js/student.js"></script>
+    <button onclick="goBack()">Go Back</button>
 
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+
+        // Your Firebase Configuration (KEEP THIS THE SAME AS IN connect.js)
+        const firebaseConfig = {
+            apiKey: "AIzaSyDN1JJgie7zha14P-6L04M6a_XOFO5tkC0",
+            authDomain: "sait-connect-84b33.firebaseapp.com",
+            databaseURL: "https://sait-connect-84b33-default-rtdb.firebaseio.com",
+            projectId: "sait-connect-84b33",
+            storageBucket: "sait-connect-84b33.firebasestorage.app",
+            messagingSenderId: "56723543915",
+            appId: "1:56723543915:web:b12fec609c9adee0021e2e",
+            measurementId: "G-6PQEQ4SXQP"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const studentDetailsDiv = document.getElementById("studentDetails");
+
+        // Function to get query parameter from URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get the student ID from the URL
+        const studentId = getQueryParam("id");
+
+        if (studentId) {
+            const dbRef = ref(db, `users/${studentId}`); // Reference the 'users' node
+
+            get(dbRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    studentDetailsDiv.innerHTML = `
+                        <p><strong>Name:</strong> ${userData.firstName} ${userData.lastName || ''}</p>
+                        <p><strong>Email:</strong> ${userData.email || 'N/A'}</p>
+                        <p><strong>Course:</strong> ${userData.course || 'N/A'}</p>
+                        <p><strong>Year:</strong> ${userData.year || 'N/A'}</p>
+                        <p><strong>Semester:</strong> ${userData.semester || 'N/A'}</p>
+                        <p><strong>Subject:</strong> ${userData.subject || 'N/A'}</p>
+                        `;
+                } else {
+                    studentDetailsDiv.innerHTML = "<p>No user found with this ID.</p>";
+                }
+            }).catch((error) => {
+                console.error("Error fetching student data:", error);
+                studentDetailsDiv.innerHTML = "<p>Error loading student details.</p>";
+            });
+        } else {
+            studentDetailsDiv.innerHTML = "<p>Invalid student ID.</p>";
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>

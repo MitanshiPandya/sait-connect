@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/profile.css">
 
-    <!-- Include XLSX Library -->
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database-compat.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 
@@ -28,9 +30,6 @@
             
             <nav>
                 <ul class="nav-links">
-                    <!-- Profile Icon Button with Dropdown -->
-
-
                     </li>
                     <a href="main.html"><i class="fa fa-fw fa-home"></i> Home</a>
                     <a href="about.html"><i class="fa fa-fw fa-user"></i> About</a>
@@ -55,7 +54,6 @@
 
     <section class="content-section">
         <div class="profile-container">
-            <!-- Banner Section -->
             <div class="banner">
                 <img id="bannerImage" src="assets/studentsbanner/navrajbanner.png" alt="Banner Image">
                 <input type="file" id="bannerUpload" accept="image/*" hidden>
@@ -70,9 +68,7 @@
 
 
 
-            <!-- Profile Info Section -->
             <div class="profile-info">
-                <!-- Profile Image -->
                 <div class="profile-pic-container">
                     <img id="profileImage" class="profile-pic" src="assets/studentsphoto/Navraj Ghimire.jpg" alt="Profile Picture">
                     
@@ -82,43 +78,41 @@
                     </button>
                 </div>
 
-                <!-- Profile Details -->
                 <div class="profile-details">
                     <h2>
                         <span id="name">NavrajGhimire</span><br>
                         <span id="pronoun">He/Him</span>
                     </h2>
-                
+                    
                     <p>
-                        <span id="courseName">Interactive Design</span> &nbsp;|&nbsp;
-                        <span id="currentYear">Second Year</span> &nbsp;|&nbsp;
+                        <span id="courseName">Interactive Design</span>  | 
+                        <span id="currentYear">Second Year</span>  | 
                         <span id="currentSemester">Second Semester</span>
                     </p>
                 </div>
                 
 
-    <!-- About Section -->
-<div class="about-section">
+    <div class="about-section">
     <h3 style="color: rgb(0, 231, 50);">ABOUT:</h3>
-    <p  class="about-content">
-        <p>I have been a print professional with over fifteen years of expertise in the print industry, specialising in  <span style="font-weight: bold; color: #ffc401;">Color Management </span>and <span style="font-weight: bold; color: #ffc401;">Print Production Management</span>. Additionally as a senior team lead, I have successfully managed prepress requirements for a Canadian agency handling the Nestle Portfoilio, ensuring Color accuracy and custom printer specifications for various printers across North America. With a strong focus on critical thinking and problem-solving, I have consistently met production targets and boosted sales through technical proficiency and effective communication. </p> 
+    <p  class="about-content">
+        <p>I have been a print professional with over fifteen years of expertise in the print industry, specialising in  <span style="font-weight: bold; color: #ffc401;">Color Management </span>and <span style="font-weight: bold; color: #ffc401;">Print Production Management</span>. Additionally as a senior team lead, I have successfully managed prepress requirements for a Canadian agency handling the Nestle Portfoilio, ensuring Color accuracy and custom printer specifications for various printers across North America. With a strong focus on critical thinking and problem-solving, I have consistently met production targets and boosted sales through technical proficiency and effective communication. </p> 
 
 </div>
 
 
 <div class="about-section">
     <h3 style="color: rgb(0, 231, 50);">SKILLS:</h3>
-    <p  class="about-content">
-        <p>Color Management      |      Print Production | Customer Service   | Prepress | Technical Support | 
-            Flatbed printer operations | Esko Finishing Systems | Adobe Photoshop   | Adobe Illustrator </P>
+    <p  class="about-content">
+        <p>Color Management      |      Print Production | Customer Service   | Prepress | Technical Support | 
+            Flatbed printer operations | Esko Finishing Systems | Adobe Photoshop   | Adobe Illustrator </P>
             
 </div>
 
 
 <div class="about-section">
     <h3 style="color: rgb(0, 231, 50);">MAJOR PROJECTS</h3>
-    <p  class="about-content">
-        <p>            Student Connect | Self Portfolio | Hi-Nav Systems   | Restoration Church for all Nations
+    <p  class="about-content">
+        <p>            Student Connect | Self Portfolio | Hi-Nav Systems   | Restoration Church for all Nations
         </P>
             
 </div>

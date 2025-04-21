@@ -1,209 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Connect</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Darker+Grotesque:wght@300..900&family=Domine:wght@400..700&family=Frijole&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Pacifico&family=Quicksand:wght@300..700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/connect.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&family=Darker+Grotesque:wght@300..900&family=Domine:wght@400..700&family=Frijole&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Pacifico&family=Quicksand:wght@300..700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="styles/connect.css"/>
 
-
-    
-     <!-- Include XLSX Library -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    
-
-
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
 </head>
 
-</a>
 <body>
     <header>
         <div class="navbar">
             <div class="logo">
                 <ul class="nav-links">
-                    <img src="assets/logo.png" alt="Navraj Logo with word mark and text below it"></a>
+                    <img src="assets/logo.png" alt="Navraj Logo"/>
                 </ul>
             </div>
 
-
-
-
-<nav>
-    <ul class="nav-links">
-        <!-- Profile Icon Button with Dropdown -->
-        <li class="profile-dropdown">
-            <a href="#" class="profile-icon">
-                <i class="fa fa-user-circle"></i>
-            </a>
-            <div class="dropdown-content">
-                <a href="index.html" class="login-link">Logout</a>
-                <a href="signup.html" class="profile-link" style="display: none;">Signup</a>
-                <a href="profile.html" class="signup-link">Profile</a>
-            </div>
-        </li>
-        <a href="main.html"><i class="fa fa-fw fa-home"></i> Home</a>
-        <a href="about.html"><i class="fa fa-fw fa-user"></i> About</a>
-        <a href="connect.html"><i class="fa fa-fw fa-envelope"></i> Connect</a>
-        <a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact</a>
-    </ul>
-</nav>
-
-
-
-
+            <nav>
+                <ul class="nav-links">
+                    <li class="profile-dropdown">
+                        <a href="#" class="profile-icon">
+                            <i class="fa fa-user-circle"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Logout</a>
+                            <a href="signup.html" style="display: none;">Signup</a>
+                            <a href="profile.html">Profile</a>
+                        </div>
+                    </li>
+                    <a href="main.html"><i class="fa fa-fw fa-home"></i> Home</a>
+                    <a href="about.html"><i class="fa fa-fw fa-user"></i> About</a>
+                    <a href="connect.html"><i class="fa fa-fw fa-envelope"></i> Connect</a>
+                    <a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact</a>
+                </ul>
+            </nav>
         </div>
     </header>
 
-
-
-
     <section class="content-section">
         <div class="section-heading">
-            <br>
-            <br>
-            <br>
+            <br><br><br>
             <h1 class="content-heading">Connect........Engage.......Collaborate........ Learn........ it's fun ............!!!</h1>
         </div>
         <div class="content-container">
-
-
-
             <div class="content-item">
                 <div class="content-image">
-                    <img src="assets/letsconnect.png" alt="A person in office with a measuring device and a mac book on the table behind him">
+                    <img src="assets/letsconnect.png" alt="Student Collaboration"/>
                 </div>
                 <div class="content-text">
-                    <p>SAIT Connect is more than just a networking platform—it's a thriving community designed to help you navigate your academic and professional journey with confidence. Whether you're a first-year student seeking guidance, a senior looking to share your experiences, or an alumnus eager to give back, SAIT Connect brings everyone together in one collaborative space.
-
-                        Gain access to valuable course-specific insights, mentorship from experienced students, and career advice from those who’ve been in your shoes. Stay informed about events, workshops, and opportunities tailored to your field of study. Build meaningful connections that go beyond the classroom and set yourself up for success.
-                        
-                        Join today and take the first step toward a stronger, more connected future at SAIT! </p>
+                    <p>SAIT Connect is more than just a networking platform—it's a thriving community...</p>
                 </div>
             </div>
         </div>
     </section>
-
-
-
-
-
-
 
     <section class="content-section">
         <div class="section-heading">
             <h3>General Search</h3>
         </div>
-        
         <div class="search-container">
-            <!-- Left-aligned heading -->
             <h3 class="search-heading">Find Students by Name</h3>
-        
             <div class="dropdown-group">
+                <div class="dropdown-search">
+                    <label for="searchInput">Input Name</label>
+                    <input type="text" id="searchInput" placeholder="Type name to search"/>
+                    <button class="search-button" onclick="searchByName()">Search</button>
+                    <button class="clear-btn" onclick="clearSearchResults('searchInput', 'resultContainer')">Clear</button>
+                </div>
 
+                <div class="dropdown-search">
+                    <label for="studentDropdown">Select Year</label>
+                    <select id="studentDropdown" onchange="searchByYear()">
+                        <option value="">Search a student year-wise</option>
+                        <option value="First Year">First Year</option>
+                        <option value="Second Year">Second Year</option>
+                    </select>
+                    <button class="search-button" onclick="searchByYear()">Search</button>
+                    <button class="clear-btn" onclick="clearSearchResults('studentDropdown', 'resultContainer')">Clear</button>
+                </div>
 
-
-
-
-                
-
-
-<!-- Search by Name -->
-<div class="dropdown-search">
-    <label for="searchInput">Input Name</label>
-    <input type="text" id="searchInput" placeholder="Type name to search">
-    <button class="search-button" onclick="searchByName()">Search</button>
-    <button class="clear-btn" onclick="clearSearchResults('searchInput', 'resultContainer')">Clear</button>
-</div>
-
-
-
-
-
-
-<!-- Search by Year -->
-<div class="dropdown-search">
-    <label for="studentDropdown">Select Year</label>
-    <select id="studentDropdown">
-        <option value="">Search a student year-wise </option>
-        <option value="First Year">First Year</option>
-        <option value="Second Year">Second Year</option>
-
-    </select>
-    <button class="search-button" onclick="searchByYear()">Search</button>
-    <button class="clear-btn" onclick="clearSearchResults('studentDropdown', 'resultContainer')">Clear</button>
-</div>
-
-
-<br>
-
-
-        <!-- Display Results Below Search -->
-        <div id="resultContainer"></div>
-
-
-
-
-
-
-
-
+                <br>
+                <div id="resultContainer"></div>
             </div>
         </div>
     </section>
-    
-
 
     <section class="content-section">
         <div class="section-heading">
             <h3>Specific Search</h3>
         </div>
-    
         <div class="search-container">
-            <!-- Left-aligned heading -->
             <h3 class="search-heading">Find by Course, Year & Semester</h3>
-    
             <div class="dropdown-group">
                 <div class="dropdown-search">
                     <label for="courseDropdown">Course</label>
                     <select id="courseDropdown">
                         <option value="">Choose a Course</option>
-                        <option value="graphic_design">IDD</option>
-                        <option value="software_engineering">SD</option>
-                        <option value="business_management">ITS</option>
+                        <option value="IDD">IDD</option>
+                        <option value="SD">SD</option>
+                        <option value="ITS">ITS</option>
                     </select>
                 </div>
-    
                 <div class="dropdown-search">
                     <label for="yearDropdown">Year</label>
                     <select id="yearDropdown">
                         <option value="">Choose Year</option>
-                        <option value="first_year">First Year</option>
-                        <option value="second_year">Second Year</option>
+                        <option value="First Year">First Year</option>
+                        <option value="Second Year">Second Year</option>
                     </select>
                 </div>
-    
                 <div class="dropdown-search">
                     <label for="semesterDropdown">Semester</label>
                     <select id="semesterDropdown">
                         <option value="">Choose Semester</option>
-                        <option value="semester_1">Semester 1</option>
-                        <option value="semester_2">Semester 2</option>
+                        <option value="Sem 1">Sem 1</option>
+                        <option value="Sem 2">Sem 2</option>
                     </select>
                 </div>
-    
-                <!-- New Subject Dropdown and Search Button in Same Line -->
                 <div class="dropdown-search-button">
                     <div class="dropdown-search">
                         <label for="subjectDropdown">Subject</label>
                         <select id="subjectDropdown">
                             <option value="">Choose Subject</option>
+                            <option value="DIGI 300 - Digital Imaging">DIGI 300 - Digital Imaging</option>
+                            <option value="DSGN 304 - Advanced Visual Design">DSGN 304 - Advanced Visual Design</option>
+                            <option value="DSGN 313 - Typography">DSGN 313 - Typography</option>
+                            <option value="PRNT 300 - Print Production">PRNT 300 - Print Production</option>
+                            <option value="DSGN 306 - Design Studio 1">DSGN 306 - Design Studio 1</option>
+                            <option value="DSGN 308 - Design Studio 2">DSGN 308 - Design Studio 2</option>
+                            <option value="DSGN 309 - Future of Design">DSGN 309 - Future of Design</option>
+                            <option value="PROJ 309 - Capstone Project">PROJ 309 - Capstone Project</option>
+                            <option value="DIGI 301 - Digital Marketing">DIGI 301 - Digital Marketing</option>
                             <option value="COMM 238 - Technical Communications I">COMM 238 - Technical Communications I</option>
-                            <option value="CMPH 209 - Introduction to Hardware">CMPH 209 - Introduction to Hardware</option>
                             <option value="CPRG 219 - Introduction to Web Communications">CPRG 219 - Introduction to Web Communications</option>
                             <option value="DSGN 228 - Introduction to Visual Design">DSGN 228 - Introduction to Visual Design</option>
                             <option value="MMDA 202 - Digital Media Foundations">MMDA 202 - Digital Media Foundations</option>
@@ -213,72 +149,70 @@
                             <option value="DSGN 221 - Intermediate Visual Design">DSGN 221 - Intermediate Visual Design</option>
                             <option value="DSGN 227 - Introduction to User Experience (UX)">DSGN 227 - Introduction to User Experience (UX)</option>
                             <option value="MMDA 203 - Intermediate Digital Media Production">MMDA 203 - Intermediate Digital Media Production</option>
-                            <option value="DIGI 300 - Digital Imaging">DIGI 300 - Digital Imaging</option>
-                            <option value="DSGN 304 - Advanced Visual Design">DSGN 304 - Advanced Visual Design</option>
-                            <option value="DSGN 313 - Typography">DSGN 313 - Typography</option>
-                            <option value="PRNT 300 - Print Production">PRNT 300 - Print Production</option>
-                            <option value="DSGN 306 - Design Studio 1">DSGN 306 - Design Studio 1</option>
-                            <option value="DSGN 308 - Design Studio 2">DSGN 308 - Design Studio 2</option>
-                            <option value="DSGN 309 - Future of Design">DSGN 309 - Future of Design</option>
-                            <option value="PROJ 309 - Capstone Project">PROJ 309 - Capstone Project</option>
+                            <option value="CPNT 217 - Introduction to Network Systems">CPNT 217 - Introduction to Network Systems</option>
+                            <option value="CPRG 213 - Web Development 1">CPRG 213 - Web Development 1</option>
+                            <option value="CPRG 216 - Object-Oriented Programming 1">CPRG 216 - Object-Oriented Programming 1</option>
+                            <option value="MATH 237 - Mathematics for Technologists">MATH 237 - Mathematics for Technologists</option>
+                            <option value="CPRG 211 - Object-Oriented Programming 2">CPRG 211 - Object-Oriented Programming 2</option>
+                            <option value="CPRG 250 - Database Design and Programming">CPRG 250 - Database Design and Programming</option>
+                            <option value="CPSY 200 - Software Analysis and Design">CPSY 200 - Software Analysis and Design</option>
+                            <option value="CPSY 202 - User Experience and Design">CPSY 202 - User Experience and Design</option>
+                            <option value="CPRG 303 - Mobile Application Development">CPRG 303 - Mobile Application Development</option>
+                            <option value="CPRG 304 - Object-Oriented Programming 3">CPRG 304 - Object-Oriented Programming 3</option>
+                            <option value="CPRG 306 - Web Development 2">CPRG 306 - Web Development 2</option>
+                            <option value="CPRG 307 - Database Programming">CPRG 307 - Database Programming</option>
+                            <option value="CPSY 301 - Software Projects: Analysis, Design, and Management">CPSY 301 - Software Projects: Analysis, Design, and Management</option>
+                            <option value="CPRG 305 - Software Testing and Deployment">CPRG 305 - Software Testing and Deployment</option>
+                            <option value="CPSY 300 - Cloud Computing for Software Development">CPSY 300 - Cloud Computing for Software Development</option>
+                            <option value="INTP 302 - Emerging Trends in Software Development">INTP 302 - Emerging Trends in Software Development</option>
+                            <option value="ITSC 320 - Software Security">ITSC 320 - Software Security</option>
+                            <option value="CMPH 209 - Introduction to Hardware">CMPH 209 - Introduction to Hardware</option>
+                            <option value="CPNT 219 - Introduction to Networks">CPNT 219 - Introduction to Networks</option>
+                            <option value="CPNT 224 - Switching and Routing Essentials">CPNT 224 - Switching and Routing Essentials</option>
+                            <option value="CPRG 217 - Scripting">CPRG 217 - Scripting</option>
+                            <option value="CPSY 204 - Server Fundamentals">CPSY 204 - Server Fundamentals</option>
+                            <option value="CPSY 206 - Virtualization Fundamentals">CPSY 206 - Virtualization Fundamentals</option>
+                            <option value="CPNT 300 - Enterprise Networking, Security, and Automation">CPNT 300 - Enterprise Networking, Security, and Automation</option>
+                            <option value="CPNT 302 - Wireless Networking Fundamentals">CPNT 302 - Wireless Networking Fundamentals</option>
+                            <option value="INTP 301 - Emerging Technologies">INTP 301 - Emerging Technologies</option>
+                            <option value="ITSC 300 - IT Security Fundamentals">ITSC 300 - IT Security Fundamentals</option>
+                            <option value="ITSC 350 - Intermediate IT Security">ITSC 350 - Intermediate IT Security</option>
+                            <option value="CPSY 302 - Advanced Servers">CPSY 302 - Advanced Servers</option>
+                            <option value="CPSY 304 - Cloud Computing">CPSY 304 - Cloud Computing</option>
+                            <option value="CPSY 350 - Intermediate Virtualization">CPSY 350 - Intermediate Virtualization</option>
+                            <option value="CPSY 352 - IT Service Management">CPSY 352 - IT Service Management</option>
                         </select>
                     </div>
-    
                     <button class="search-button" onclick="searchDropdown()">Search</button>
                     <button class="clear-btn" onclick="clearSearchFilters()">Clear</button>
-
                 </div>
-            </div> <!-- ✅ Corrected Closing for `.dropdown-group` -->
-
-            <!-- Display Results for Course, Year, Semester & Subject Search -->
+            </div>
             <div id="resultContainerDropdown"></div>
-
         </div>
     </section>
-    
 
-
-
-
-
-
-  
-    <footer>
-        <footer id="footer">
-            <div class="footer-container">
+    <footer id="footer">
+        <div class="footer-container">
             <div class="contact-details">
                 <p><strong>Phone:</strong> +1 87 284 7248</p>
                 <p><strong>Email:</strong> connect@saitconnect.ca</p>
             </div>
-
             <div class="footer-links">
-                <a href="main.html" aria-label="Home"><i class="fa fa-fw fa-home"></i></a>
-                <a href="about.html" aria-label="About"><i class="fa fa-fw fa-user"></i></a>
-                <a href="connect.html" aria-label="Connect"><i class="fa fa-fw fa-envelope"></i></a>
-                <a href="contact.html" aria-label="Contact"><i class="fa fa-fw fa-phone"></i></a>
+                <a href="main.html"><i class="fa fa-fw fa-home"></i></a>
+                <a href="about.html"><i class="fa fa-fw fa-user"></i></a>
+                <a href="connect.html"><i class="fa fa-fw fa-envelope"></i></a>
+                <a href="contact.html"><i class="fa fa-fw fa-phone"></i></a>
             </div>
-
-            <div class="footer-copyright-container">
+            <div class="footer-copyright">
                 <p>© SAIT Connect <span id="current-year"></span> | All Rights Reserved</p>
             </div>
             <div class="social-icons">
-                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/in/navraj-ghimire-12b28059/" target="_blank" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-                <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-                <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-                <a href="https://www.google.com/maps/place/Southern+Alberta+Institute+of+Technology/@51.0640894,-114.0885397,17z/data=!3m1!4b1!4m6!3m5!1s0x53716f9268a69e81:0xb1db5e68bd61e28!8m2!3d51.0640894!4d-114.0885397!16zL20vMDMyYnds?entry=ttu" target="_blank" aria-label="Google Maps"><i class="fa fa-map-marker"></i></a>
-            </div>
-            <div class="contact-details">
-                <p><strong>Hours:</strong> Mon-Fri 9am-5pm</p>
-                <p><strong>Address:</strong> 1301 16 Avenue NW Calgary AB, T2M 0L4</p>
+                <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/navraj-ghimire-12b28059/" target="_blank"><i class="fa fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
 
-
     <script src="js/connect.js"></script>
-
-
-    
 </body>
 </html>

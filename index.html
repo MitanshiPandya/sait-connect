@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAIT Connect</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database-compat.js"></script>
 </head>
 <body>
 
-    <!-- Loading Screen with Video -->
     <div id="loading-screen">
         <video autoplay muted id="loading-video">
             <source src="assets/loading.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
-        <!-- Login/Signup Form (Initially Hidden) -->
         <div id="auth-container" class="hidden">
             <div class="auth-box">
                 <h2>Welcome</h2>
                 <p>Please login or sign up to continue.</p>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <button onclick="redirectToMain()">Login</button>
+                <input type="text" id="email" placeholder="Email">
+                <input type="password" id="password" placeholder="Password">
+                <button id="login-button">Login</button>
                 <button onclick="redirectToSignup()">Sign Up</button>
             </div>
         </div>
